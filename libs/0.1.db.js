@@ -3,7 +3,7 @@
 const MongoClient = require('mongodb').MongoClient;
 
 const dbname = 'shopbebe';
-const uri = 'mongodb://localhost:27017/' + dbname;
+const uri = 'mongodb+srv://phuc:khieVuk2ZM11p2s4@cluster0.skjiy.mongodb.net/shopbebe?retryWrites=true&w=majority';
 
 /// CÂU TRUY VẤN Ở ĐÂY !!!
 // - { <field1>: <value>, <field2>: <value> ... }

@@ -17,7 +17,7 @@ var storage = multer.diskStorage({
 var uploadStore = multer({ storage: storage });
 
 const dbname = 'shopbebe';
-const uri = 'mongodb://localhost:27017/' + dbname;
+const uri = 'mongodb+srv://phuc:khieVuk2ZM11p2s4@cluster0.skjiy.mongodb.net/shopbebe?retryWrites=true&w=majority';
 
 /// --- Code CONTROLLERs
 router.use(function timeLog (req, res, next) {

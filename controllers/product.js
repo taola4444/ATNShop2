@@ -193,7 +193,7 @@ function deleteProduct(req,res){
     console.log(xproduct1);
     if (xproduct1.name != "") {
             var MongoClient = require('mongodb').MongoClient;
-            var url = "mongodb://localhost:27017/";
+            var url = "mongodb+srv://phuc:khieVuk2ZM11p2s4@cluster0.skjiy.mongodb.net/shopbebe?retryWrites=true&w=majority";
             MongoClient.connect(url, function(err, db) {
             if (err) throw err;
             var dbo = db.db("shopbebe");
