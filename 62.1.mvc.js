@@ -25,7 +25,7 @@ var atob = require('atob');
 /// ------------------ CONFIG
 var configHeader = require("./configs/config_Header");
 var configDB = require("./configs/config_DB");
-const PORT = process.env.PORT || 8080;
+const PORT = 8081;
 var urldb = configDB.localdb.urldb;
 
 
@@ -174,7 +174,7 @@ function createUserPage(req, res) {
     }
 }
 app.get('/feedback', (req,res) => {
-        res.render("pages/feedback",  {title: "ATN-Shop feedback page", configHeader: configHeader, currpage: "Feedback" });  
+    res.render("pages/feedback",  {title: "ATN-Shop feedback page",msg:'', configHeader: configHeader, currpage: "Feedback" });  
 });
 app.post('/send' ,(req,res) => {
     var name = req.body.name;
@@ -203,9 +203,10 @@ let mailOptions = {
 transporter.sendMail(mailOptions, (err, data) => {
     if (err) {
         return log('Error occurs' + err);
+    }else{
+        res.render("pages/feedback",  {title: "ATN-Shop feedback page",msg:"Feedback thành công!!!", configHeader: configHeader, currpage: "Feedback" });  
+        return log('Email sent!!!');
     }
-    res.render('contact',{msg:"Feedback thành công!!!"});
-    return log('Email sent!!!');
     
 });
    

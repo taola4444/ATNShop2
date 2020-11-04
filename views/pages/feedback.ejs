@@ -97,12 +97,13 @@ ul{
         <header>
             <%- include ('../template/header', { username: null , configHeader:configHeader, currpage : currpage  }); %>
         </header>
-
+<script>
+</script>
         <main>       
             <div class="container" style="margin-top: 5px">
                 <div class="wrapper animated bounceInLeft">
                   <div class="company-info">
-                    <h3>Report Customer</h3>
+                    <h3>Feedback Customer</h3>
                     <ul>
                       <li><i class="fa fa-road"></i>ATN Shop</li>
                       <li><i class="fa fa-phone"></i>+84389437538</li>
@@ -110,7 +111,8 @@ ul{
                     </ul>
                   </div>
                   <div class="contact">
-                    <h3>Email Us</h3>
+                    <h3>Information Feedback</h3>
+                    <%=msg%>
                     <form method="POST" action="send">
                       <p>
                         <label>Name</label>
