@@ -38,12 +38,8 @@
                                         <td style="vertical-align:middle;align-items: center ;"><%=itemlist[item].number%></td>
                                         <td style="vertical-align:middle;align-items: center ;"><%=itemlist[item].price%></td>
                                         
-                                        <!-- <td style="vertical-align:middle;align-items: center ;"><%const thanhtien = itemlist[item].price * itemlist[item].number%><%=thanhtien%></td>
-                                        <td>Thanh toán<input type="submit" name="price" value="<%=thanhtien%>"></td> -->
-                                        <% sum = 0%>
-                                        <% itemlist[item].price.forEach(i){%>
-                                            <%=sum += i;%>
-                                        <%}%>
+                                        <td style="vertical-align:middle;align-items: center ;"><%const thanhtien = itemlist[item].price * itemlist[item].number%><%=thanhtien%></td>
+                                        <td>Thanh toán<input type="submit" name="price" value="<%=thanhtien%>"></td>
                                        
                                     </tr>     
                                 <% }); %>
