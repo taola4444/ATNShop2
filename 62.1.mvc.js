@@ -25,7 +25,7 @@ var atob = require('atob');
 /// ------------------ CONFIG
 var configHeader = require("./configs/config_Header");
 var configDB = require("./configs/config_DB");
-const PORT = process.env.PORT || 8081;
+const PORT = 8081;
 var urldb = configDB.localdb.urldb;
 
 
@@ -228,13 +228,11 @@ function loginPage(req, res) {
 
  var mongoose = require('mongoose');
  var User = require('./models/user');
- 
- const uri = 'mongodb://localhost:27017/shopbebe';
- 
+
  const querysql = accsubmit;
  console.log(querysql);
  
- mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true },
+ mongoose.connect(urldb, { useNewUrlParser: true, useUnifiedTopology: true },
  function(err, dbconnection) {
      if (err) throw handleError(err);
      ///
