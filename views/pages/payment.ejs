@@ -10,25 +10,30 @@
         </header>
 
         <main>
-    <form action='/payment' method='GET' style="background-color: gold;padding-bottom:10px;padding-right:50px;padding-left:100px;width: 800px;border: 1px solid gainsboro;margin-top: 5px;margin-left: 350px;">
-            <label style="margin-bottom: 10px;" style="background-color: red;">Mã sản phẩm:<%=_id%></label></br>      
-            <labe>Sản phẩm :<%=names%></label></br>
-            
-            <label style="margin-top: 10px;">Giá sản phẩm :<%=pricees%></label></br>
-            <label>Số lượng :<%=soluongs%></label></br>
-            <label style="margin-top: 5px;">Giá và số lượng :<%=prices%></label></br> 
-            <label>Hình ảnh: </label></br>
-            <%img = 0%>
-                <% _img.forEach(function(img){%>
-                    <img class="card-img-top center" style="max-width:150px;max-height:150px;" src="/images/<%=img%>.jpg" alt="Card image cap">
-                    <% }); %>
-                </br>
-            <label style="margin-top: 5px;">Tổng :</label>
+    <form action='' method='GET' style="background-image: url();background-color: cadetblue;padding-bottom:10px;padding-right:50px;padding-left:100px;width: 1520px;height: 635px;border: 1px solid gainsboro;margin-top: 5px;margin-left:10px;">
+           <div class="main" style="display: block;">
+            <%alls.slice(1,).forEach(myFunction);%>
+            <%function myFunction(item) {%>
+              <%a = item.split(',');%>
+              <td>Mã sản phẩm:<%=a[0]%></td> </br>
+              <label>Hình ảnh: </label></br>
+              <td><img class="card-img-top center" style="max-width:100px;max-height:70px;" src="/images/<%=a[0]%>.jpg" alt="Card image cap"></td></br>
+              <labe>Sản phẩm :<%=a[1]%></label></br>
+              <label style="margin-top: 10px;">Giá sản phẩm :<%=a[3]%></label></br>
+              <label>Số lượng :<%=a[2]%></label></br>
+              <label>Số lượng * Giá :<%=a[4]%></label></br>
+
+            <%}%>  
             <%sum = 0;i = 0%>
-            <% prices.forEach(function(i){%>
-                <%sum += Number.parseInt(i)%>
+            <% alls.slice(1,).forEach(function(i){%>
+                <%c = i.split(',');%>
+                <%n = Number.parseInt(c[4])%>
+                <%sum += n;%>
                 <% }); %>
-                <%=sum%>
+                <h4>Tổng: <%=sum%></h4>
+            </br>
+           </div>
+           <div class="container" style="width: 800px;height: 400px;;margin-top: -450px;margin-left: 300px;background-color: bisque;">
             <div class='form-group'>
                 <label>Ngân hàng</label> 
                 <select style="width: 200px;" class='form-control' id='bankCode' name='bankCode'>
@@ -63,18 +68,26 @@
                     <img style="border: 1px solid gainsboro;margin-top: 10px;margin-right: 10px;width: 100px;height:100px;" src="https://upload.wikimedia.org/wikipedia/vi/7/7c/Techcombank_logo.png">
                     <img style="border: 1px solid gainsboro;margin-top: 10px;margin-right: 10px;width: 100px;height:100px;" src="https://static.ybox.vn/2017/6/23/0fcc923c-57ec-11e7-a5c2-2e995a9a3302.jpg">
                     <img style="border: 1px solid gainsboro;margin-top: 10px;margin-right: 10px;width: 100px;height:100px;" src="https://www.hdbank.com.vn/static/image/Logo.png">
+
                     
+           
+            <button class='btn.btn-default' id='btnPopup' type='submit'><a style="margin-top: -100px;text-decoration: none;" href="/">Thanh toán</a></button> 
             </div>
+                </div>
+           
+                
+            
             <script>
                 $(document).ready(function(){
                     $('button').click(function(){
-                        alert('Bạn đã thanh toán thành công!!!' + '<%=sum%>');
+                        alert('Bạn đã thanh toán thành công!!! ' + 'Với Giá Của Sản Phẩm Là: ' + "<%=sum%>");
                 })
                 })
                 
             </script>
-            <button class='btn.btn-default' id='btnPopup' type='submit'><a style="text-decoration: none;" href="/">Thanh toán</a></button> 
+            
             </div>
+            
                 </form>
             </main>
           

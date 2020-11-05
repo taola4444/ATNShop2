@@ -46,7 +46,8 @@
                                         
                                         <%const thanhtien = itemlist[item].price * itemlist[item].number%>
                                         <td style="vertical-align:middle;align-items: center ;"><%=thanhtien%></td>
-                                        <td><input style="margin-top: 22px;margin-left: 50px;" type="checkbox" name="price" value="<%=thanhtien%>"></td>
+                                        <td><input style="margin-top: 22px;margin-left: 50px;display: none" type="text" name="price" value="<%=thanhtien%>"></td>
+                                        <td><input style="margin-top: 22px;margin-left: -190px;" type="checkbox" name="all" value="<%=itemlist[item].id%>,<%=itemlist[item].name%>,<%=itemlist[item].number%>,<%=itemlist[item].price%>,<%=thanhtien%>"></td>
                                     </tr>     
                                 <% }); %>
 

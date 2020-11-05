@@ -47,3 +47,10 @@
     </body>
 
 </html> 
+
+<%sum = 0;var i = 0%>
+            <%prices.forEach(function(i){%>
+                <%sum += Number.parseInt(i)%>
+                <% }); %>
+                <%=sum%>
+                <input style="display: none;" type="text" name="name" value="<%=sum%>">   

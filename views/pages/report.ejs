@@ -10,81 +10,52 @@
         </header>
 
         <main>
-    <form action='/payment' method='GET' style="padding-bottom:20px;padding-right:20px;padding-left:20px;width: 700px;border: 1px solid gainsboro;margin-top: 20px;margin-left: 50px;">
-            <div class='form-group'>
-                <label>Các chi nhánh của cửa hàng ATNShop</label> 
-                <select style="width: 200px;" class='form-control' id='bankCode' name='bankCode'>
-                    <option value=''>Chi nhánh</option> 
-                    <option name="address1" value='chinhanh1'>Chi nhanh 1</option> 
-                    <option name="address2" value='chinhanh2'>Chi nhanh 2</option>
-                    <option name="address3" value='chinhanh3'>Chi nhanh 3</option>
-                    <option name="address4" value='chinhanh4'>Chi nhanh 4</option>
-                </select>
-                
-            </div>
-            <div class='form-group'>
-                <label>Các chi nhánh của cửa hàng ATNShop</label> 
-                <select style="width: 200px;" class='form-control' id='bankCode' name='bankCode'>
-                    <option value=''>Sản phẩm</option> 
-                    <option name="address1" value='chinhanh1'>Sản phẩm 1</option> 
-                    <option name="address2" value='chinhanh2'>Sản phẩm 2</option>
-                    <option name="address3" value='chinhanh3'>Sản phẩm 3</option>
-                    <option name="address4" value='chinhanh4'>Sản phẩm 4</option>
-                </select>
-                
-            </div>
-            <div class='form-group'>
-                <label>Các chi nhánh của cửa hàng ATNShop</label> 
-                <select style="width: 200px;" class='form-control' id='bankCode' name='bankCode'>
-                    <option value=''>Số lượng</option> 
-                    <option name="address1" value='chinhanh1'>1</option> 
-                    <option name="address2" value='chinhanh2'>2</option>
-                    <option name="address3" value='chinhanh3'>3</option>
-                    <option name="address4" value='chinhanh4'>4 </option>
-                </select>
-                
-            </div>
-            <div class='form-group'>
-                <label>Các sản phẩm bán được</label> 
-                <select style="width: 200px;" class='form-control' id='bankCode' name='bankCode'>
-                    <option value=''>Sản phẩm</option> 
-                    <option name="address1" value='chinhanh1'>Sản phẩm 1</option> 
-                    <option name="address2" value='chinhanh2'>Sản phẩm 2</option>
-                    <option name="address3" value='chinhanh3'>Sản phẩm 3</option>
-                    <option name="address4" value='chinhanh4'>Sản phẩm 4</option>
-                </select>
-                
-            </div>
+            <form action="" method="GET" style="padding-bottom:20px;padding-right:20px;padding-left:20px;width: 700px;border: 1px solid gainsboro;margin-top: 20px;margin-left: 50px;">
+    <div class='form-group'>
+        <label>Họ và Tên Người Report</label> 
+        <label>Chi nhánh</label> 
+        <input type="text" name="fullname">
+        
+    </div>
+    <div class='form-group'>
+        <label>Bộ phận</label> 
+        <input type="text" name="bophan">
+        
+    </div>
+    <div class='form-group'>
+            <label>Các chi nhánh của cửa hàng ATNShop</label> 
+            <label>Chi nhánh</label> 
+            <input type="text" name="chinhanh">
+            
+        </div>
+        <div class='form-group'>
+            <label>Các sản phẩm bán chạy của cửa hàng ATNShop</label> 
+            <input type="text" name="sanphambanchay">
+            
+        </div>
+        <div class='form-group'>
+            <label>Số lượng bán sản phẩm</label> 
+            <input type="number" name="soluong">
+            
+        </div>
 
-            <div class='form-group'>
-                <label>Các sản phẩm không được</label> 
-                <select style="width: 200px;" class='form-control' id='bankCode' name='bankCode'>
-                    <option value=''>Sản phẩm</option> 
-                    <option name="address1" value='chinhanh1'>Sản phẩm 1</option> 
-                    <option name="address2" value='chinhanh2'>Sản phẩm 2</option>
-                    <option name="address3" value='chinhanh3'>Sản phẩm 3</option>
-                    <option name="address4" value='chinhanh4'>Sản phẩm 4</option>
-                </select>
-                
-            </div>
-
-            <div class='form-group'>
-                <label>Tiền thu được</label> 
-                <select style="width: 200px;" class='form-control' id='bankCode' name='bankCode'>
-                    <option value=''>Sản phẩm</option> 
-                    <option name="address1" value='chinhanh1'>Sản phẩm 1</option> 
-                    <option name="address2" value='chinhanh2'>Sản phẩm 2</option>
-                    <option name="address3" value='chinhanh3'>Sản phẩm 3</option>
-                    <option name="address4" value='chinhanh4'>Sản phẩm 4</option>
-                </select>
-                
-            </div>
-            <button class='btn.btn-default' id='btnPopup' type='submit'><a style="text-decoration: none;" href="../pages/report">Submit Report</a></button> 
-            </div>
-                </form>
+        <div class='form-group'>
+            <label>Các sản phẩm bán ế của cửa hàng ATNShop</label> 
+            <input type="text" name="sanphambankhongchay">
+        </div>
+        <div class='form-group'>
+            <label>Tiền thu được</label> 
+            <input type="number" name="total">
+        </div>
+        <button type='submit'><a style="text-decoration: none;" name="all">Submit Report</a></button> 
+        </div>
+            </form>
             </main>
           
         
             <%- include ('../template/footer'); %>
         </body>
 </html>
+
+
+
