@@ -25,7 +25,7 @@ var atob = require('atob');
 /// ------------------ CONFIG
 var configHeader = require("./configs/config_Header");
 var configDB = require("./configs/config_DB");
-const PORT = process.env.PORT || 8081;
+const PORT = 8081;
 var urldb = configDB.localdb.urldb;
 
 
@@ -70,6 +70,11 @@ uploadControl.params = { configHeader: configHeader, configDB: configDB};
 var paymentControl = require('./controllers/payment');
 app.use('/payment', paymentControl);
 paymentControl.params = { configHeader: configHeader, configDB: configDB};
+
+
+// var reportControl = require('./controllers/report');
+// app.use('/report', reportControl);
+// reportControl.params = { configHeader: configHeader, configDB: configDB};
 
 var login = require('./controllers/login');
 app.use('/login',login);
@@ -119,7 +124,10 @@ function chattingPage(req, res) {
     }  
 }
 
-
+app.get('/report',reportPage);
+function reportPage(req,res){
+    res.render("pages/report",{title : "Page Report",configHeader,configDB,currpage : "Report"});
+}
 /// ..................................................
 app.get('/order', orderPage);
 function orderPage(req, res) {

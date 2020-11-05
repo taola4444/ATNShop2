@@ -32,21 +32,25 @@
                                 <%Object.keys(itemlist).forEach(function(item) { %>
                                     <tr style="vertical-align:middle;align-items: center ;">
                                         <td style="vertical-align:middle;align-items: center ;"><%=itemlist[item].id%></td>
+                                        <input style="display: none;" type="text" name="id" value="<%=itemlist[item].id%>">
                                         <td> 
                                             <img class="card-img-top center" style="max-width:60px;max-height:60px;" src="/images/<%=itemlist[item].id%>.jpg" alt="Card image cap">
+                                            <input style="display: none;" type="text" name="img" value="<%=itemlist[item].id%>">
                                         </td>
                                         <td style="vertical-align:middle;align-items: center ;"><%=itemlist[item].name%></td>
+                                        <input style="display: none;" type="text" name="name" value="<%=itemlist[item].name%>">
                                         <td style="vertical-align:middle;align-items: center ;"><%=itemlist[item].number%></td>
+                                        <input style="display: none;" type="text" name="soluong" value="<%=itemlist[item].number%>">
                                         <td style="vertical-align:middle;align-items: center ;"><%=itemlist[item].price%></td>
+                                        <input style="display: none;" type="text" name="pricee" value="<%=itemlist[item].price%>">
                                         
                                         <%const thanhtien = itemlist[item].price * itemlist[item].number%>
                                         <td style="vertical-align:middle;align-items: center ;"><%=thanhtien%></td>
                                         <td><input style="margin-top: 22px;margin-left: 50px;" type="checkbox" name="price" value="<%=thanhtien%>"></td>
-                                       
                                     </tr>     
                                 <% }); %>
 
-                                <button name="all">Thanh toán</button>
+                                <button style="position: absolute;margin-top: 420px;margin-left: 1010px;" name="all">Thanh toán</button>
                             </form>
                             
                             </tbody>

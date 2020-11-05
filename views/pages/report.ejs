@@ -1,11 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <head>
+        <%- include ('../template/head', { title: title } ); %>
+    </head>
+    <body>
+
+        <header>
+            <%- include ('../template/header', { username: null , configHeader:configHeader, currpage : currpage  }); %>
+        </header>
+
+        <main>
+    <form action='/payment' method='GET' style="padding-bottom:20px;padding-right:20px;padding-left:20px;width: 700px;border: 1px solid gainsboro;margin-top: 20px;margin-left: 50px;">
+            <div class='form-group'>
+                <label>Các chi nhánh của cửa hàng ATNShop</label> 
+                <select style="width: 200px;" class='form-control' id='bankCode' name='bankCode'>
+                    <option value=''>Chi nhánh</option> 
+                    <option name="address1" value='chinhanh1'>Chi nhanh 1</option> 
+                    <option name="address2" value='chinhanh2'>Chi nhanh 2</option>
+                    <option name="address3" value='chinhanh3'>Chi nhanh 3</option>
+                    <option name="address4" value='chinhanh4'>Chi nhanh 4</option>
+                </select>
+                
+            </div>
+            <div class='form-group'>
+                <label>Các chi nhánh của cửa hàng ATNShop</label> 
+                <select style="width: 200px;" class='form-control' id='bankCode' name='bankCode'>
+                    <option value=''>Sản phẩm</option> 
+                    <option name="address1" value='chinhanh1'>Sản phẩm 1</option> 
+                    <option name="address2" value='chinhanh2'>Sản phẩm 2</option>
+                    <option name="address3" value='chinhanh3'>Sản phẩm 3</option>
+                    <option name="address4" value='chinhanh4'>Sản phẩm 4</option>
+                </select>
+                
+            </div>
+            <div class='form-group'>
+                <label>Các chi nhánh của cửa hàng ATNShop</label> 
+                <select style="width: 200px;" class='form-control' id='bankCode' name='bankCode'>
+                    <option value=''>Số lượng</option> 
+                    <option name="address1" value='chinhanh1'>1</option> 
+                    <option name="address2" value='chinhanh2'>2</option>
+                    <option name="address3" value='chinhanh3'>3</option>
+                    <option name="address4" value='chinhanh4'>4 </option>
+                </select>
+                
+            </div>
+            <div class='form-group'>
+                <label>Các sản phẩm bán được</label> 
+                <select style="width: 200px;" class='form-control' id='bankCode' name='bankCode'>
+                    <option value=''>Sản phẩm</option> 
+                    <option name="address1" value='chinhanh1'>Sản phẩm 1</option> 
+                    <option name="address2" value='chinhanh2'>Sản phẩm 2</option>
+                    <option name="address3" value='chinhanh3'>Sản phẩm 3</option>
+                    <option name="address4" value='chinhanh4'>Sản phẩm 4</option>
+                </select>
+                
+            </div>
+
+            <div class='form-group'>
+                <label>Các sản phẩm không được</label> 
+                <select style="width: 200px;" class='form-control' id='bankCode' name='bankCode'>
+                    <option value=''>Sản phẩm</option> 
+                    <option name="address1" value='chinhanh1'>Sản phẩm 1</option> 
+                    <option name="address2" value='chinhanh2'>Sản phẩm 2</option>
+                    <option name="address3" value='chinhanh3'>Sản phẩm 3</option>
+                    <option name="address4" value='chinhanh4'>Sản phẩm 4</option>
+                </select>
+                
+            </div>
+
+            <div class='form-group'>
+                <label>Tiền thu được</label> 
+                <select style="width: 200px;" class='form-control' id='bankCode' name='bankCode'>
+                    <option value=''>Sản phẩm</option> 
+                    <option name="address1" value='chinhanh1'>Sản phẩm 1</option> 
+                    <option name="address2" value='chinhanh2'>Sản phẩm 2</option>
+                    <option name="address3" value='chinhanh3'>Sản phẩm 3</option>
+                    <option name="address4" value='chinhanh4'>Sản phẩm 4</option>
+                </select>
+                
+            </div>
+            <button class='btn.btn-default' id='btnPopup' type='submit'><a style="text-decoration: none;" href="../pages/report">Submit Report</a></button> 
+            </div>
+                </form>
+            </main>
+          
         
-</body>
+            <%- include ('../template/footer'); %>
+        </body>
 </html>
