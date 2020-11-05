@@ -25,7 +25,7 @@ var atob = require('atob');
 /// ------------------ CONFIG
 var configHeader = require("./configs/config_Header");
 var configDB = require("./configs/config_DB");
-const PORT = process.env.PORT || 8080;
+const PORT = 8081;
 var urldb = configDB.localdb.urldb;
 
 
@@ -128,30 +128,30 @@ function chattingPage(req, res) {
 app.get('/order', orderPage);
 function orderPage(req, res) {
     var xcontent = "";
+
         console.log('\t ... get ORDER INF ! ');
 
-    var strtext = req.cookies.cart_itemlist;
-    console.log('1 ',strtext);
-    xcontent += "<BR><p> " + strtext + "</p>";
-    //
-    strtext = atob(strtext);
-    console.log('1 ',strtext);
-    xcontent += "<BR>atob <p> " + strtext + "</p>";
-    //
-    strtext = escape(strtext);
-    console.log('1 ',strtext);
-    xcontent += "<BR>escape <p> " + strtext + "</p>";
-    //
-    strtext = decodeURIComponent(strtext);
-    console.log('1 ',strtext);
-    xcontent += "<BR>decodeURIComponent <p> " + strtext + "</p>";
-    ///
-    var itemlist  = JSON.parse(strtext);
-    console.log("\n\t ", xcontent);
-    
-    res.render("pages/order", {title: "ATN-Shop ORDER page", 
-        content: xcontent , itemlist: itemlist,  // Object.values(itemlist)
-        configHeader: configHeader  , currpage: "Order"  });
+        var strtext = req.cookies.cart_itemlist;
+        console.log('1 ',strtext);
+        xcontent += "<BR><p> " + strtext + "</p>";
+            strtext = atob(strtext);
+            console.log('1 ',strtext);
+            xcontent += "<BR>atob <p> " + strtext + "</p>";
+            //
+            strtext = escape(strtext);
+            console.log('1 ',strtext);
+            xcontent += "<BR>escape <p> " + strtext + "</p>";
+            //
+            strtext = decodeURIComponent(strtext);
+            console.log('1 ',strtext);
+            xcontent += "<BR>decodeURIComponent <p> " + strtext + "</p>";
+            ///
+            var itemlist  = JSON.parse(strtext);
+            console.log("\n\t ", xcontent);
+                var flags = true;
+            res.render("pages/order", {title: "ATN-Shop ORDER page", 
+                content: xcontent , itemlist: itemlist,  // Object.values(itemlist)
+                configHeader: configHeader  , currpage: "Order"  });
 }
 
 /// ..................................................
