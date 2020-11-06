@@ -159,7 +159,7 @@ function orderPage(req, res) {
 /// ..................................................
 app.get('/user/create', createUserPage);
 function createUserPage(req, res) {
-    if (session.user) {
+    if (session.user != "") {
         if (req.query.username && req.query.username.trim() != "") {
             accsubmit = {
                 username : req.query.username.trim(),
