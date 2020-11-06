@@ -90,7 +90,7 @@ console.log(fullname1);
                 from: 'abcdefghjk2707@gmail.com', // TODO: email sender
                 to: 'nguyenphuc12a6@gmail.com' , // TODO: email receiver
                 subject: 'The director has a new announcement',
-                text: 'Full name: ' + fullname1 + 'Position: ' + bophan1 + 'at branch ' + chinhanh1 + 'submitted report!!!'
+                text: 'Full name: ' + fullname1 + ' Position: ' + bophan1 + ' at branch ' + chinhanh1 + ' submitted report!!!'
             };
             transporter.sendMail(mailOptions, (err, data) => {
                 if (err) {
