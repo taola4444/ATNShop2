@@ -16,15 +16,20 @@ router.use(function timeLog (req, res, next) {
     console.log('\n\t Product report - Time: ', Date.now());
     next();
 })
+router.get('/', (req,res) => {
+    if (session.user) {
+    res.render("pages/report",  {title: "ATN-Shop report page",msg:'',username: session.user.username, configHeader: configHeader, currpage: "Report" });  
+}else{
+    res.redirect('/login');
+}
+});
 router.post('/',reportPage);
-router.get('/',reportPage);
 function reportPage(req,res){
     require('dotenv').config();
+    if(session.user){
 
 const nodemailer = require('nodemailer');
 const log = console.log;
-    if (session.user) 
-    {
         var fullname1 = "";
         var bophan1 = "";
         var chinhanh1 = "";
@@ -33,78 +38,75 @@ const log = console.log;
         var sanphambankhongchay1 = "";
         var total1 = "";
 
-if(req.query.fullname){
-    fullname1 = req.query.fullname;
+if(req.body.fullname){
+    fullname1 = req.body.fullname;
 }
-if(req.query.bophan){
-    bophan1 = req.query.bophan;
+if(req.body.bophan){
+    bophan1 = req.body.bophan;
 }
-if(req.query.chinhanh){
-    chinhanh1 = req.query.chinhanh;
+if(req.body.chinhanh){
+    chinhanh1 = req.body.chinhanh;
 }
-if(req.query.sanphambanchay){
-    sanphambanchay1 = req.query.sanphambanchay;
+if(req.body.sanphambanchay){
+    sanphambanchay1 = req.body.sanphambanchay;
 }
-if(req.query.soluong){
-    soluong1 = req.query.soluong;
+if(req.body.soluong){
+    soluong1 = req.body.soluong;
 }
-if(req.query.sanphambankhongchay){
-    sanphambankhongchay1 = req.query.sanphambankhongchay;
+if(req.body.sanphambankhongchay){
+    sanphambankhongchay1 = req.body.sanphambankhongchay;
 }
-if(req.query.total){
-    total1 = req.query.total;
+if(req.body.total){
+    total1 = req.body.total;
 }
 console.log(fullname1);
-            if(fullname1 != ""){
-                MongoClient.connect(uri, function(err, db) {
-                    if (err) throw err;
-                    var dbo = db.db("shopbebe");
-                    array = {
-                        fullname : fullname1,
-                        bophan : bophan1,
-                        chinhanh: chinhanh1,
-                        sanphambanchay1: sanphambanchay1,
-                        soluong : soluong1,
-                        sanphambankhongchay: sanphambankhongchay1,
-                        total: total1
-                    };
-                    dbo.collection("Report").insertOne(array, function(err, res) {
-                      if (err) throw err;
-                      console.log("Report submit");
-                      db.close();
-                    });
-                  });
-                  let transporter = nodemailer.createTransport({
-                    service: 'gmail',
-                    auth: {
-                        user: 'abcdefghjk2707@gmail.com' , // 
-                        pass: 'P12345678' // TODO: your gmail password 
-                    }
-                });
-                let mailOptions = {
-                    from: 'abcdefghjk2707@gmail.com', // TODO: email sender
-                    to: 'nguyenphuc12a6@gmail.com' , // TODO: email receiver
-                    subject: 'The director has a new announcement',
-                    text: 'Full name: ' + fullname1 + 'Position: ' + bophan1 + 'at branch ' + chinhanh1 + 'submitted report!!!'
+        if(session.user){
+            MongoClient.connect(uri, function(err, db) {
+                if (err) throw err;
+                var dbo = db.db("shopbebe");
+                array = {
+                    fullname : fullname1,
+                    bophan : bophan1,
+                    chinhanh: chinhanh1,
+                    sanphambanchay1: sanphambanchay1,
+                    soluong : soluong1,
+                    sanphambankhongchay: sanphambankhongchay1,
+                    total: total1
                 };
-                transporter.sendMail(mailOptions, (err, data) => {
-                    if (err) {
-                        return log('Error occurs' + err);
-                    }else{
-                        return log('Email sent!!!');
-                    }
+                dbo.collection("Report").insertOne(array, function(err, res) {
+                  if (err) throw err;
+                  console.log("Report submit");
+                  db.close();
                 });
-            }
-            res.render("pages/report",  {
-                title: "ATN-Shop report page", 
-                username: session.user.username,
-                 configHeader: configHeader , currpage: "Report"
-                });
-            
-    }
-    else{
-        res.redirect('/login');
-    }
+              });
+              let transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: 'abcdefghjk2707@gmail.com' , // 
+                    pass: 'P12345678' // TODO: your gmail password 
+                }
+            });
+            let mailOptions = {
+                from: 'abcdefghjk2707@gmail.com', // TODO: email sender
+                to: 'nguyenphuc12a6@gmail.com' , // TODO: email receiver
+                subject: 'The director has a new announcement',
+                text: 'Full name: ' + fullname1 + 'Position: ' + bophan1 + 'at branch ' + chinhanh1 + 'submitted report!!!'
+            };
+            transporter.sendMail(mailOptions, (err, data) => {
+                if (err) {
+                    return log('Error occurs' + err);
+                }else{
+                    return log('Email sent!!!');
+                }
+            });
+        }
+
+        }
+        res.render("pages/report",  {
+            title: "ATN-Shop report page", msg:'Submit report success!!!',
+            username: session.user.username,
+             configHeader: configHeader , currpage: "Report"
+            });
         
 
     
